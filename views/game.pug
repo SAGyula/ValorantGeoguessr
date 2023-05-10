@@ -1,0 +1,62 @@
+html(lang="en")
+    head(userselect="return false;")
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" type="text/css" href="/stylesheets/game.css")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js") 
+        script(src="https://kit.fontawesome.com/daa386bf97.js") 
+        link(rel="shortcut icon" href="https://www.svgrepo.com/show/424912/valorant-logo-play-2.svg" type="image/x-icon")
+        title Game - ValorantGeoguessr
+    body
+        #game
+            #timer
+
+            img#image(src="/images/Ascent/easy/kep1.png", draggable="false")
+
+            #guessbox
+                img#map(src="", draggable="false")
+                button#guess(disabled) Place a ping on the map
+
+            #marker
+
+        #score(style="display: none")
+            #container 
+                #top
+                    img(src="/images/minimaps/ascent.png") 
+                    #markers
+                #nav
+                    #current-round 
+                        p Current round 
+                        h2#cr-score 5000
+                        p#cr-total of 5000
+                    #buttons
+                        button#next-btn NEXT 
+                        button#exit-btn 
+                            i.fa-solid.fa-xmark
+                    #total
+                        p Total 
+                        h2#t-score 20000
+                        p#t-total of 25000
+
+        #result(style="display: none")
+            #res-container 
+                #res-top 
+                    #maps 
+                    img(src="/images/minimaps/ascent.png")
+                    #res-markers
+                #res-nav 
+                    button#res-exit EXIT 
+                    #results 
+                        p Total 
+                        h2#res-score 
+                        p#res-total of 25000
+                    button#res-retry RETRY
+
+        script. 
+            var map = "#{map}";
+            var roundTime = #{time};
+            var difficulty = "#{difficulty}";
+
+        script(src="/javascripts/locations.js" type="text/javascript") 
+        script(src="/javascripts/game.js" type="text/javascript") 

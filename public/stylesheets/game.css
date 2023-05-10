@@ -1,0 +1,114 @@
+* {
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background-size: cover;
+    backdrop-filter: blur(8px) brightness(0.8);
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+#image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+}
+
+#guessbox {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #ffffff20;
+    border-radius: 15px;
+}
+
+#map {
+    width: 500px;
+    height: 500px;
+    background-color: #ffffff15;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+#guess {
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+}
+
+#guess:not([disabled]) {
+    cursor: pointer;
+}
+
+#marker {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: red;
+    right: -5px;
+    bottom: -5px;
+}
+
+#top > img, #res-top > img {
+    width: 500px;
+    height: 500px;
+}
+
+.answer {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: lime;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.solution {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(70, 70, 70);
+}
+
+.solution > i {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: smaller;
+    color: white;
+}
+
+svg {
+    position: absolute;
+}
+
+#timer {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+}
