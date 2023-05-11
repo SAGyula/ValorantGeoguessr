@@ -10,10 +10,10 @@ html {
 body {
     margin: 50px;
     padding: 20px 50px 50px;
-    background-color: #04040499;
-    border: 1px solid #19191955;
+    background-color: #2929295b;
+    border: 1px solid #45454555;
     border-radius: 40px;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(24px);
     box-shadow: 0 0 20px #000000ee;
 }
 
@@ -31,7 +31,7 @@ h1 {
 h2 {
     font-family: "valorant";
     color: white;
-    text-shadow: 0 0 20px #f00;;
+    text-shadow: 0 0 20px #f00;
 
 }
 
@@ -47,7 +47,7 @@ form {
     align-items: center;
 
     padding: 60px;
-    background-color: #04040433;
+    background-color: #04040455;
     border: 1px solid #19191922;
     border-radius: 40px;
 }
@@ -58,22 +58,19 @@ form {
 
 #easy {
     background-color: #009900;
+    --outline: #003300;
 }
 #medium {
     background-color: #c3c300;
+    --outline: #737300;
 }
 #hard {
     background-color: #ff0000;
+    --outline: #880000;
 }
 
-#easy:checked {
-    outline: 4px solid #003300;
-}
-#medium:checked {
-    outline: 4px solid #737300;
-}
-#hard:checked {
-    outline: 4px solid #550000;
+input[type="radio"]:checked {
+    outline: 4px solid var(--outline);
 }
 
 input[type="radio"] {
@@ -87,6 +84,7 @@ input[type="radio"] {
     font-size: medium;
     color: #fff;
     text-shadow: 1px 1px 8px #000;
+    cursor: pointer;
 }
 
 input[type="radio"]::before {
@@ -101,7 +99,7 @@ input[type="radio"]::before {
     align-items: center;
 
     padding: 60px;
-    background-color: #04040433;
+    background-color: #04040455;
     border: 1px solid #19191922;
     border-radius: 40px;
 }
@@ -110,19 +108,58 @@ input[type="radio"]::before {
     margin-top: 0;
 }
 
-#time {
+#timer {
     width: 31vw;
     appearance: none;
     height: 4px;
     background-color: red;
+    border-radius: 2px;
 }
 
-#time::-webkit-slider-thumb {
+#timer::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     height: 10px;
     width: 20px;
     border-radius: 5px;
     background: #fff;
+}
+
+#time {
+    color: white;
+    text-shadow: 0 0 20px #ff0000;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: "valorant";
+}
+
+#continue {
+    position: absolute;
+    display: block;
+    width: 15%;
+    height: 40px;
+    margin: 5px auto;
+    border-radius: 15px;
+    background-color: #770000;
+    border: none;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    cursor: pointer;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Rubik";
+    text-transform: uppercase;
+}
+
+#continue:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
+#continue:not(:disabled):hover {
+    background-color: #aa0000;
+    transform: scale(1.1) translateX(-45%);
 }
 

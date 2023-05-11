@@ -34,6 +34,16 @@ $("#map").on("click", function (e) {
     $("#guess").attr("disabled", false);
 });
 
+function debugResult() {
+    answers = [[110, 120], [130, 140], [150, 160], [170, 180], [190, 200]];
+    roundsPlayed = 5;
+    points = Math.floor(Math.random() * 25000);
+    next_location();
+
+    if (timer) 
+        clearInterval(timer);
+}
+
 function showScore() {
     showingScore = true;
     $("#game").css("display", "none");
@@ -41,10 +51,9 @@ function showScore() {
 
     $("#top > img").attr("src", `/images/minimaps/${map}.png`)
 
-    var offset = $("#top > img").offset();
-    var markers = `<div class="answer" style="top: ${offset.top + y - 10}px; left: ${offset.left + x - 10}px"></div>`
-    markers += `<div class="solution" style="top: ${offset.top + currentLocation.y - 10}px; left: ${offset.left + currentLocation.x - 10}px"><i class="fa-solid fa-font-awesome"></i></div>`
-    var svg = `<svg width="500" height="500" style="top: ${offset.top}; left: ${offset.left}" id="connection">
+    var markers = `<div class="answer" style="top: ${y - 10}px; left: ${x - 10}px"></div>`
+    markers += `<div class="solution" style="top: ${currentLocation.y - 10}px; left: ${currentLocation.x - 10}px"><i class="fa-solid fa-font-awesome"></i></div>`
+    var svg = `<svg width="500" height="500" style="top: 0" id="connection">
             <g fill="none" stroke="blue" stroke-width="2">
                 <path stroke-dasharray="4, 4" d="M${x} ${y} l${currentLocation.x - x} ${currentLocation.y - y}"/>
             </g>
@@ -53,6 +62,7 @@ function showScore() {
     $("#cr-score").text(currentPoint);
     $("#t-score").text(points)
     $("#t-total").text(`of ${MAX_POINT * roundsPlayed}`);
+    $("#rounds").text(`Round ${roundsPlayed}/${MAX_ROUND}`);
 
     if (x == 2000 || y == 2000) {
         $("#markers").html("");
@@ -66,11 +76,11 @@ function mapChange() {
     var selMap = $("input[name='map']:checked").val()
     var selectedMapLocs = randomMaps.map((e, i) => e === selMap ? i : '').filter(String);
     $("#res-top > img").attr("src", `/images/minimaps/${selMap}.png`);
-    var offset = $("#res-top > img").offset();
+    var offset = $("#maps").outerHeight(true);
 
 
     var markers = "";
-    var svg = `<svg width="500" height="500" style="top: ${offset.top}; left: ${offset.left}" id="connection">
+    var svg = `<svg width="500" height="500" style="top: ${offset}" id="connection">
             <g fill="none" stroke="blue" stroke-width="2">`;
     selectedMapLocs.forEach(e => {
         var loc = selectedLocations[e];
@@ -78,8 +88,8 @@ function mapChange() {
 
         if (cx != 2000 || cy != 2000) {
 
-            markers += `<div class="answer" style="top: ${offset.top + cy - 10}; left: ${offset.left + cx - 10}">${e + 1}</div>`;
-            markers += `<div class="solution" style="top: ${offset.top + loc.y - 10}; left: ${offset.left + loc.x - 10}"><i class="fa-solid fa-font-awesome"></i></div>`;
+            markers += `<div class="solution" style="top: ${offset + loc.y - 10}; left: ${loc.x - 10}"><i class="fa-solid fa-font-awesome"></i></div>`;
+            markers += `<div class="answer" style="top: ${offset + cy - 10}; left: ${cx - 10}">${e + 1}</div>`;
 
             svg += `<path stroke-dasharray="4, 4" d="M${cx} ${cy} l${loc.x - cx} ${loc.y - cy}"/>`;
         }
@@ -101,7 +111,7 @@ function showResult() {
         var markers = "";
         $("#res-top > img").attr("src", `/images/minimaps/${map}.png`);
         var offset = $("#res-top > img").offset();
-        var svg = `<svg width="500" height="500" style="top: ${offset.top}; left: ${offset.left}" id="connection">
+        var svg = `<svg width="500" height="500" style="top: 0" id="connection">
             <g fill="none" stroke="blue" stroke-width="2">`;
 
         for (let i = 0; i < MAX_ROUND; i++) {
@@ -111,8 +121,8 @@ function showResult() {
             if (cx == 2000 || cy == 2000)
                 continue;
 
-            markers += `<div class="answer" style="top: ${offset.top + cy - 10}; left: ${offset.left + cx - 10}">${i + 1}</div>`;
-            markers += `<div class="solution" style="top: ${offset.top + loc.y - 10}; left: ${offset.left + loc.x - 10}"><i class="fa-solid fa-font-awesome"></i></div>`;
+                markers += `<div class="solution" style="top: ${loc.y - 10}; left: ${loc.x - 10}"><i class="fa-solid fa-font-awesome"></i></div>`;
+            markers += `<div class="answer" style="top: ${cy - 10}; left: ${cx - 10}">${i + 1}</div>`;
 
             svg += ` <path stroke-dasharray="4, 4" d="M${cx} ${cy} l${loc.x - cx} ${loc.y - cy}"/>`;
 
@@ -246,12 +256,17 @@ function main() {
 }
 
 $("#guess").on("click", () => guess())
-$(document).on("keypress", function (e) {
+$(document).on("keydown", function (e) {
+    console.log(e.code);
     if (e.code == "Space")
         if (!showingScore && !showingResult)
             guess();
         else if (showingScore)
             next_location();
+
+    if (e.code == "Home") {
+        debugResult();
+    }
 })
 
 main();

@@ -4,6 +4,7 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", type="text/css", href="/stylesheets/options.css")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js") 
         title Options - ValorantGeoguessr
     body 
         h1 Options 
@@ -11,12 +12,15 @@ html(lang="en")
             #difficulty
                 h2#dif-text Difficulty
                 #radios
-                    input#easy(type="radio", name="difficulty", value="easy", checked)
+                    input#easy(type="radio", name="difficulty", value="easy")
                     input#medium(type="radio", name="difficulty", value="medium")
                     input#hard(type="radio", name="difficulty", value="hard")
 
             #round-timer 
                 h2#time-text Round timer
-                input#time(type="range", name="time", min="1", max="24", value="12")
+                input#timer(type="range", name="time", min="1", max="24", value="12")
+                #time 2 mins
 
-            button(type="submit") Continue
+            button#continue(type="submit", disabled) Continue
+
+    script(src="/javascripts/options.js") 

@@ -112,8 +112,6 @@ class Carousel {
             this.unshift(id - 5)
         }
 
-        console.log(this.items, this.carousel_data);
-
         for (let i = 0; i < this.items.length; i++) {
             var element = this.items[i];
 
@@ -129,6 +127,8 @@ class Carousel {
         var map = selected.map;
         this.selected = map;
         $("#map-name").text(map);
+
+        $("#select").attr("disabled", false);
     }
 }
 
