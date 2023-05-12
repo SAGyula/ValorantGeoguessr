@@ -3,6 +3,12 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
+        link(rel="stylesheet", href="stylesheets/login.css")
+        title Login - ValorantGeoguessr
     body 
+        h1#title Login
+        form(action="/login", method="post") 
+            input#name(type="text", name="username", placeholder="Username")
+            input#password(type="password", name="password", placeholder="Password")
+            button#submit(type="submit") Log in
         p #{message}

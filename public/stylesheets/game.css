@@ -380,3 +380,30 @@ svg {
     background-color: #bbbbbb;
     z-index: 10;
 }
+
+#maps {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 0 20px;
+    overflow: visible;
+}
+
+#maps > input {
+    appearance: none;
+    cursor: pointer;
+    color: #330000;
+    overflow: visible;
+}
+#maps > input::before {
+    content: attr(value);
+    font-family: "valorant";
+    font-size: medium;
+}
+#maps > input:checked {
+    transform: scale(1.2);
+    font-weight: bolder;
+    color: #440000;
+    text-shadow: 0 0 10px #770000;
+}

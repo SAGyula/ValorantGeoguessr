@@ -4,3 +4,10 @@ $("#select").on("click", function() {
 
     location = `/options/${mapCarousel.selected.toLocaleLowerCase()}`;
 });
+
+$("#login").on("click", () => {
+    location = "/login";
+})
+$("#signup").on("click", () => {
+    location = "/signup";
+})

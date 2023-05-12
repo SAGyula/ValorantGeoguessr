@@ -1,0 +1,113 @@
+@import url('https://fonts.cdnfonts.com/css/valorant');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+html {
+    background: url("/images/background.png");
+    background-color: #777;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    display: inline-block;
+    margin: 50px;
+    width: 45vw;
+    height: 60vh;
+    padding: 20px 50px 50px;
+    background-color: #2929295b;
+    border: 1px solid #45454555;
+    border-radius: 40px;
+    backdrop-filter: blur(24px);
+    box-shadow: 0 0 20px #000000ee;
+}
+
+#title {
+    font-family: "valorant";
+    text-align: center;
+    font-size: 30;
+    color: #aa0000;
+    text-shadow: 0 0 20px #000;
+    line-height: 50px;
+    margin: 0;
+}
+
+form {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+input {
+    width: 80%;
+    height: 35px;
+    margin-bottom: 30px;
+    appearance: none;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #898989d6;
+    padding: 20px;
+    color: white;
+    font-family: "Rubik";
+    font-size: large;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill {
+    -webkit-text-fill-color: green;
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid #fff;
+}
+
+input::placeholder {
+    color: #db626260;
+    font-family: "Rubik";
+    font-size: large;
+}
+
+input:focus::placeholder {
+    color: #a3a3a3;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    color: white !important;
+    font-family: "Rubik" !important;
+    font-size: large !important;
+    text-shadow: 0 0 2px #ffffff;
+}
+
+#submit {
+    position: absolute;
+    display: block;
+    width: 40%;
+    height: 40px;
+    margin: 5px auto;
+    border-radius: 15px;
+    background-color: #770000;
+    border: none;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    cursor: pointer;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Rubik";
+    text-transform: uppercase;
+}
