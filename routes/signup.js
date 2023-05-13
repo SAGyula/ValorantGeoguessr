@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var User = require("./user")
+var db = require("../services/db");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('signup');
 });
-router.post('/', function(req, res, next) {
+router.post('/', async function(req, res, next) {
     var name = req.body.username;
     var pass = req.body.password;
     var repass = req.body.repassword;
@@ -22,9 +22,12 @@ router.post('/', function(req, res, next) {
         return;
     }
 
-    var newUser = new User(name, pass);
-    req.session.user = newUser;
-    User.instances.push(newUser);
+    var ret = await db.addUser(name, pass);
+
+    if (!ret) {
+        res.render('signup', { message: "Username is already taken. Choose another one!" });
+        return;
+    }
 
     res.redirect('/')
 });

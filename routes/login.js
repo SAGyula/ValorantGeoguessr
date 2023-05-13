@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var User = require("./user")
+var db = require("../services/db")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('login');
 });
-router.post('/', function(req, res, next) {
+router.post('/', async function(req, res, next) {
     var name = req.body.username;
     var pass = req.body.password;
 
@@ -15,11 +15,11 @@ router.post('/', function(req, res, next) {
         return;
     }
 
-    console.log(name, pass)
-    var user = User.auth(name, pass);
-    console.log(user)
-    if (user) {
-        req.session.user = user;
+    var user = (await db.checkUser(name))[0];
+    console.log(user);
+    
+    if (user && user.password == pass) {
+        req.session.user = user.username;
         res.redirect("/");
     } else {
         res.render("login", {message: "Wrong username or password!"})
