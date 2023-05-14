@@ -10,6 +10,7 @@ var gameRouter = require('./routes/game');
 var optionsRouter = require('./routes/options');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
+var signoutRouter = require('./routes/signout');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/game', gameRouter);
 app.use('/options', optionsRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
+app.use('/signout', signoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

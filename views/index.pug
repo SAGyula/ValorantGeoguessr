@@ -15,6 +15,12 @@ html(lang="en")
             h1#title ValorantGeoguessr
             #account-management 
                 #menu 
+                    i#close.fa-solid.fa-xmark
+                    if user == undefined
+                        button#login Log in
+                        button#signup Sign up
+                    else
+                        button#signout Sign out
                 if user == undefined
                     span#account
                         i.fa-solid.fa-bars

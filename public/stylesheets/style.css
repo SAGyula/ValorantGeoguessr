@@ -68,7 +68,9 @@ a {
     border-radius: 25px;
     padding: 5px 5px 5px 15px;
     backdrop-filter: blur(10px);
-    background-color: #14141410;
+    background-color: #0b0b0b10;
+    cursor: pointer;
+    transition: border 1s;
 }
 #account > div {
     height: 40px;
@@ -78,6 +80,7 @@ a {
     padding: 5px;
     width: 40px;
     height: 40px;
+    border-radius: 15px;
 }
 
 #pfp {
@@ -104,36 +107,86 @@ a {
     width: 30px;
     line-height: 30px !important;
 }
+#account:not(.loggedin)[opened="true"] {
+    border-radius: 25px;
+    box-shadow: none;
+}
 
 #menu {
     position: absolute;
     right: 0;
     top: 0;
+    width: 0;
+    height: 0;
+    z-index: 30;
+    background-color: #1c0000;
+    border-radius: 25px;
+    box-shadow: 0 0 10px #290000ee;
+    border: none;
+    transition: width 0.4s, height 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+#menu[opened="true"] {
     width: 50vw;
     height: 90vh;
-    z-index: 30;
-    /* background-color: #ffffff; */
-    border-radius: 25px;
+    border: 1px solid #45454555;
+    padding: 120px;
+}
+#menu:not([opened="true"]) * {
+    display: none;
 }
 
-#account-management > button {
-    width: 30%;
-    height: 50px;
-    margin-left: 10px;
-    background-color: #660000;
+#close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: xx-large;
+    color: white;
+    width: 32px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#login {
+    width: 50%;
+    height: 30px;
+    background-color: #870000;
     border: none;
-    border-radius: 25px;
+    border-radius: 10px;
+    font-family: "Rubik";
     font-size: larger;
     color: white;
-    font-weight: bolder;
-    text-transform: uppercase;
     cursor: pointer;
-    font-family: "Rubik";
 }
-
-#account-management > button:hover {
-    background-color: #990000;
-    transform: scale(1.05);
+#signup {
+    width: 50%;
+    height: 30px;
+    border: 3px solid #870000;
+    background: none;
+    border-radius: 10px;
+    font-family: "Rubik";
+    font-size: larger;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#signout {
+    width: 50%;
+    height: 30px;
+    border: 3px solid #870000;
+    background: none;
+    border-radius: 10px;
+    font-family: "Rubik";
+    font-size: larger;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#login:hover, #signup:hover, #signup:hover {
+    transform: scale(1.1);
 }
 
 #map-name {
