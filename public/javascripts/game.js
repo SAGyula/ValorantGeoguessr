@@ -111,7 +111,8 @@ function showResult() {
         var markers = "";
         $("#res-top > img").attr("src", `/images/minimaps/${map}.png`);
         var offset = $("#res-top > img").offset();
-        var svg = `<svg width="500" height="500" style="top: 0" id="connection">
+        var offset = $("#maps").outerHeight(true);
+        var svg = `<svg width="500" height="500" style="top: ${offset}px" id="connection">
             <g fill="none" stroke="blue" stroke-width="2">`;
 
         for (let i = 0; i < MAX_ROUND; i++) {
@@ -121,8 +122,8 @@ function showResult() {
             if (cx == 2000 || cy == 2000)
                 continue;
 
-                markers += `<div class="solution" style="top: ${loc.y - 10}; left: ${loc.x - 10}"><i class="fa-solid fa-font-awesome"></i></div>`;
-            markers += `<div class="answer" style="top: ${cy - 10}; left: ${cx - 10}">${i + 1}</div>`;
+            markers += `<div class="solution" style="top: ${offset + loc.y - 10}; left: ${loc.x - 10}"><i class="fa-solid fa-font-awesome"></i></div>`;
+            markers += `<div class="answer" style="top: ${offset + cy - 10}; left: ${cx - 10}">${i + 1}</div>`;
 
             svg += ` <path stroke-dasharray="4, 4" d="M${cx} ${cy} l${loc.x - cx} ${loc.y - cy}"/>`;
 

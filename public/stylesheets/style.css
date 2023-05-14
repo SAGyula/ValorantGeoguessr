@@ -36,7 +36,7 @@ a {
     width: 350px;
 }
 
-#menu {
+#left-spacer {
     display: inline;
 }
 
@@ -53,6 +53,67 @@ a {
 #account-management {
     display: flex;
     justify-content: right;
+    align-items: center;
+    position: relative;
+}
+#account {
+    height: 40px;
+    font-size: larger;
+    font-family: "Rubik";
+    color: white;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 0 10px #000000ee;
+    border: 1px solid #45454555;
+    border-radius: 25px;
+    padding: 5px 5px 5px 15px;
+    backdrop-filter: blur(10px);
+    background-color: #14141410;
+}
+#account > div {
+    height: 40px;
+    line-height: 40px;
+}
+#account:not(.loggedin) {
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+#pfp {
+    margin-left: 20px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    filter: invert(200%) hue-rotate(360deg);
+}
+.fa-bars {
+    margin-left: 10px;
+    margin-right: 5px;
+    height: 40px;
+    width: 40px;
+    line-height: 40px !important;
+    text-align: center;
+    object-fit: contain;
+    border-radius: 50%;
+    font-size: 30px;
+}
+#account:not(.loggedin) > .fa-bars {
+    margin: 5px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px !important;
+}
+
+#menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50vw;
+    height: 90vh;
+    z-index: 30;
+    /* background-color: #ffffff; */
+    border-radius: 25px;
 }
 
 #account-management > button {
@@ -112,3 +173,4 @@ a {
     background-color: #aa0000;
     transform: scale(1.1) translateX(-45%);
 }
+

@@ -7,14 +7,22 @@ html(lang="en")
         link(rel="stylesheet", href="stylesheets/carousel.css")
         link(rel="shortcut icon" href="/images/favicon.png" type="image/x-icon")
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js") 
+        script(src="https://kit.fontawesome.com/daa386bf97.js") 
         title Main - ValorantGeoguessr
     body 
         #nav
-            div#menu imh
+            div#left-spacer 
             h1#title ValorantGeoguessr
             #account-management 
-                button#login Login 
-                button#signup Signup
+                #menu 
+                if user == undefined
+                    span#account
+                        i.fa-solid.fa-bars
+                else
+                    span#account.loggedin
+                        div #{user}
+                        img#pfp(src="/images/profile-icon.png")
+
 
         #map-name ​
         .carousel
@@ -22,3 +30,6 @@ html(lang="en")
 
         script(src="javascripts/carousel.js") 
         script(src="javascripts/index.js") 
+        script. 
+            console.log("#{user}");
+
