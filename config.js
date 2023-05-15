@@ -5,7 +5,6 @@ const config = {
         user: "sim077980",
         password: "password",
         database: "valorantgeoguess",
-    },
-    listPerPage: 10,
+    }
 };
 module.exports = config;

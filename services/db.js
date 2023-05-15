@@ -32,8 +32,44 @@ async function addUser(name, pass) {
     return out;
 }
 
+async function addRecord(name, points, time, map, difficulty) {
+    const rows = await execute(
+        `SELECT id, name, points, time, map, difficulty FROM leaderboard WHERE name='${name}' AND map='${map}' AND difficulty='${difficulty}' LIMIT 1`
+    );
+
+    if (!rows[0]) {
+        var out = await execute(
+            `INSERT INTO leaderboard (name, points, time, map, difficulty) VALUE ('${name}', '${points}', '${time}', '${map}', '${difficulty}')`
+        )
+    } else {
+        var id = rows[0].id;
+        var l_points = rows[0].points;
+
+        if (l_points > points)
+            return;
+
+        var out = await execute(
+            `UPDATE leaderboard SET points=${points}, time=${time} WHERE id=${id}`
+        )
+    }
+
+    return out;
+}
+
+async function getLeaderboard(name, map, difficulty) {
+    const rows = await execute(
+        `SELECT id, name, points, time, map, difficulty FROM leaderboard WHERE name LIKE '${name}' AND map LIKE '${map}' AND difficulty LIKE '${difficulty}' ORDER BY points DESC`
+    );
+
+    console.log(rows);
+
+    return rows;
+}
+
 module.exports = {
     execute,
     checkUser,
-    addUser
+    addUser,
+    addRecord,
+    getLeaderboard
 }

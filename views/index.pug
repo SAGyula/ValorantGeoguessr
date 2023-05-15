@@ -14,13 +14,6 @@ html(lang="en")
             div#left-spacer 
             h1#title ValorantGeoguessr
             #account-management 
-                #menu 
-                    i#close.fa-solid.fa-xmark
-                    if user == undefined
-                        button#login Log in
-                        button#signup Sign up
-                    else
-                        button#signout Sign out
                 if user == undefined
                     span#account
                         i.fa-solid.fa-bars
@@ -28,6 +21,15 @@ html(lang="en")
                     span#account.loggedin
                         div #{user}
                         img#pfp(src="/images/profile-icon.png")
+                #menu 
+                    i#close.fa-solid.fa-xmark
+                    a(href="/leaderboard") Leaderboard
+                    #spacer
+                    if user == undefined
+                        button#login Log in
+                        button#signup Sign up
+                    else
+                        button#signout Sign out
 
 
         #map-name ​

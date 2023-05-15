@@ -19,10 +19,6 @@ body {
     box-shadow: 0 0 20px #000000ee;
 }
 
-a {
-    color: #00B7FF;
-}
-
 #nav {
     height: 56px;
     margin: 0 0 40px 0;
@@ -127,16 +123,28 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
     box-sizing: border-box;
 }
 #menu[opened="true"] {
     width: 50vw;
     height: 90vh;
     border: 1px solid #45454555;
-    padding: 120px;
+    padding: 160px 120px 120px;
 }
 #menu:not([opened="true"]) * {
     display: none;
+}
+
+#menu > a {
+    color: white;
+    text-decoration: none;
+    font-family: "valorant";
+    font-size: xx-large;
+} 
+
+#menu > #spacer {
+    flex-grow: 2;
 }
 
 #close {
@@ -152,7 +160,7 @@ a {
 
 #login {
     width: 50%;
-    height: 30px;
+    height: 35px;
     background-color: #870000;
     border: none;
     border-radius: 10px;
@@ -163,7 +171,7 @@ a {
 }
 #signup {
     width: 50%;
-    height: 30px;
+    height: 35px;
     border: 3px solid #870000;
     background: none;
     border-radius: 10px;
@@ -175,7 +183,7 @@ a {
 }
 #signout {
     width: 50%;
-    height: 30px;
+    height: 35px;
     border: 3px solid #870000;
     background: none;
     border-radius: 10px;

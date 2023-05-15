@@ -16,7 +16,6 @@ router.post('/', async function(req, res, next) {
     }
 
     var user = (await db.checkUser(name))[0];
-    console.log(user);
     
     if (user && user.password == pass) {
         req.session.user = user.username;

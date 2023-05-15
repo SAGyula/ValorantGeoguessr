@@ -36,6 +36,8 @@ body {
 
     background-color: #ffffff20;
     border-radius: 15px;
+
+    overflow: visible;
 }
 
 #map {
@@ -50,10 +52,16 @@ body {
     height: 30px;
     border: none;
     border-radius: 15px;
+    transition: all 0.1s;
 }
 
 #guess:not([disabled]) {
     cursor: pointer;
+}
+
+#guess:not([disabled]):hover {
+    transform: scale(1.01);
+    background-color: #c4c4c4;
 }
 
 #marker {
@@ -108,13 +116,17 @@ svg {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: black;
+    background-color: #560000;
+    box-shadow: -3px -3px 15px #00000088 inset;
     border-radius: 10px;
     height: 40px;
     width: 100px;
     color: white;
     line-height: 40px;
     text-align: center;
+    font-family: "Rubik";
+    font-size: large;
+    font-weight: 500;
 }
 
 #score {

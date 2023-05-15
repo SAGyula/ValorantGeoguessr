@@ -32,6 +32,7 @@ $("#map").on("click", function (e) {
     );
 
     $("#guess").attr("disabled", false);
+    $("#guess").text("GUESS");
 });
 
 function debugResult() {
@@ -144,6 +145,8 @@ function showResult() {
 
         mapChange();
     }
+
+    $.post("/record", {points: points, time: totalTime, map: defMap, difficulty: difficulty});
 }
 
 $("#next-btn").on("click", () => { next_location() });
@@ -212,6 +215,7 @@ function next_location() {
     }
 
     $("#guess").attr("disabled", true);
+    $("#guess").text("Place a ping on the map")
 }
 
 function random() {
@@ -258,7 +262,6 @@ function main() {
 
 $("#guess").on("click", () => guess())
 $(document).on("keydown", function (e) {
-    console.log(e.code);
     if (e.code == "Space")
         if (!showingScore && !showingResult)
             guess();

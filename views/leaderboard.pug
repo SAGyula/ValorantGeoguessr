@@ -1,0 +1,54 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="stylesheets/leaderboard.css")
+        link(rel="shortcut icon" href="/images/favicon.png" type="image/x-icon")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js") 
+        script(src="https://kit.fontawesome.com/daa386bf97.js") 
+        script. 
+            var user = "#{user}";
+        title Leaderboard - ValorantGeoguessr
+    body 
+        h1#title Leaderboard
+        fieldset#categories
+            legend Categories
+            #selectors
+                #maps
+                    | Maps 
+                    select#map(name="maps")
+                        option(value="all") All
+                        option(value="ascent") Ascent
+                        option(value="bind") Bind
+                        option(value="breeze") Breeze
+                        option(value="fracture") Fracture
+                        option(value="haven") Haven
+                        option(value="icebox") Icebox
+                        option(value="lotus") Lotus
+                        option(value="pearl") Pearl
+                        option(value="split") Split
+                #difficultes
+                    | Difficulty
+                    select#difficulty(name="difficulty")
+                        option(value="all") All
+                        option(value="easy") Easy
+                        option(value="medium") Medium
+                        option(value="hard") Hard
+                #user-only
+                    label(for="uo") User only?
+                    input#uo(type="checkbox" name="user-only")
+            button#search Search
+        #leaderboard
+            table
+                thead 
+                    tr
+                        th 
+                        th Name 
+                        th Points 
+                        th Time 
+                        th Map 
+                        th Difficulty 
+                tbody#tbody 
+                    
+        script(src="/javascripts/leaderboard.js") 

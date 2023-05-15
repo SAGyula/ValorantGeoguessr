@@ -10,7 +10,6 @@ router.post('/', async function(req, res, next) {
     var name = req.body.username;
     var pass = req.body.password;
     var repass = req.body.repassword;
-    console.log(name, pass, repass, req.body);
 
     if (!name || !pass || !repass) {
         res.render('signup', {message: "Fill out all the fields!"});

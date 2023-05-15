@@ -122,7 +122,6 @@ class Carousel {
         item.addClass("selected");
 
         var mapId = item[0].getAttribute("id");
-        console.log(item[0], typeof(item[0]), mapId, typeof(mapId));
         var selected = this.carousel_data.find(value => value.id == mapId);
         var map = selected.map;
         this.selected = map;
