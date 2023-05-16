@@ -14,14 +14,14 @@ html(lang="en")
             div#left-spacer 
             h1#title ValorantGeoguessr
             #account-management 
-                if user == undefined
-                    span#account
-                        i.fa-solid.fa-bars
-                else
-                    span#account.loggedin
-                        div #{user}
-                        img#pfp(src="/images/profile-icon.png")
                 #menu 
+                    if user == undefined
+                        span#account
+                            i.fa-solid.fa-bars
+                    else
+                        span#account.loggedin
+                            div #{user}
+                            img#pfp(src="/images/profile-icon.png")
                     i#close.fa-solid.fa-xmark
                     a(href="/leaderboard") Leaderboard
                     #spacer

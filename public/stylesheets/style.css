@@ -52,33 +52,76 @@ body {
     align-items: center;
     position: relative;
 }
-#account {
+
+.fa-bars {
+    color: white;
+    font-size: xx-large;
+    width: 32px;
+    text-align: center;
+    line-height: 32px;
+}
+
+#menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: 0 0 10px #000000ee;
+    border: 1px solid #45454555;
+    background-color: #0b0b0b10;
+    border-radius: 20px;
+    z-index: 30;
+    transition: min-width 0.3s, height 0.3s, background-color 0.3s;
+}
+#menu:has(#account:not(.loggedin)):not([opened="true"]) {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    padding: 10px;
+}
+
+#menu:not([opened="true"]) *:not(#account):not(.fa-bars):not(#account > div):not(#pfp) {
+    display: none;
+}
+#menu:not([opened="true"]) {
+    cursor: pointer;
+}
+#menu:not([opened="true"]):has(.loggedin) {
+    height: 52px;
+    min-width: 0;
+}
+#menu[opened="true"] {
+    min-width: 50vw !important;
+    height: 90vh;
+    background-color: #1c0000;
+    border-radius: 26px;
+    padding: 160px 120px 120px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#menu[opened="true"] .fa-bars {
+    display: none;
+}
+#menu[opened="true"]:has(.loggedin) > #account {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+#menu:has(#account.loggedin) {
+    border-radius: 26px;
+}
+#account.loggedin {
     height: 40px;
     font-size: larger;
     font-family: "Rubik";
     color: white;
     display: flex;
     flex-direction: row;
-    box-shadow: 0 0 10px #000000ee;
-    border: 1px solid #45454555;
-    border-radius: 25px;
-    padding: 5px 5px 5px 15px;
-    backdrop-filter: blur(10px);
-    background-color: #0b0b0b10;
-    cursor: pointer;
+    padding: 6px 6px 6px 15px;
     transition: border 1s;
-}
-#account > div {
-    height: 40px;
     line-height: 40px;
 }
-#account:not(.loggedin) {
-    padding: 5px;
-    width: 40px;
-    height: 40px;
-    border-radius: 15px;
-}
-
 #pfp {
     margin-left: 20px;
     height: 40px;
@@ -86,54 +129,9 @@ body {
     border-radius: 50%;
     filter: invert(200%) hue-rotate(360deg);
 }
-.fa-bars {
-    margin-left: 10px;
-    margin-right: 5px;
-    height: 40px;
-    width: 40px;
-    line-height: 40px !important;
-    text-align: center;
-    object-fit: contain;
-    border-radius: 50%;
-    font-size: 30px;
-}
-#account:not(.loggedin) > .fa-bars {
-    margin: 5px;
-    height: 30px;
-    width: 30px;
-    line-height: 30px !important;
-}
-#account:not(.loggedin)[opened="true"] {
-    border-radius: 25px;
-    box-shadow: none;
-}
 
-#menu {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 0;
-    height: 0;
-    z-index: 30;
-    background-color: #1c0000;
-    border-radius: 25px;
-    box-shadow: 0 0 10px #290000ee;
-    border: none;
-    transition: width 0.4s, height 0.4s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    box-sizing: border-box;
-}
-#menu[opened="true"] {
-    width: 50vw;
-    height: 90vh;
-    border: 1px solid #45454555;
-    padding: 160px 120px 120px;
-}
-#menu:not([opened="true"]) * {
-    display: none;
+#spacer {
+    flex-grow: 2;
 }
 
 #menu > a {

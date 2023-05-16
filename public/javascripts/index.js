@@ -1,4 +1,4 @@
-$("#select").on("click", function() {
+$("#select").on("click", function () {
     if (!mapCarousel.selected)
         return;
 
@@ -23,4 +23,9 @@ function closeMenu() {
 
 $("#account").on("click", () => openMenu());
 $("#close").on("click", () => closeMenu());
-$("#signout").on("click", () => {location = "/signout"});
+$("#signout").on("click", () => { location = "/signout" });
+
+// $(document).ready(() => {
+//     if ($("#account").hasClass("loggedin"))
+//         $("#menu").css("width", $("#menu").width());
+// })
