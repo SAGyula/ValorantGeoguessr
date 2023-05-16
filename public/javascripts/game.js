@@ -161,6 +161,8 @@ function guess() {
     if (timer) 
         clearInterval(timer);
 
+    totalTime += roundTime * 10 - currentTime;
+
     var distance = currentLocation.distance([x, y]);
     answers.push([x, y]);
     roundsPlayed++;

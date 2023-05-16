@@ -10,7 +10,7 @@ async function execute(sql, params) {
 
 async function checkUser(username) {
     const rows = await execute(
-        `SELECT id, username, password FROM users WHERE username='${username}' LIMIT 1`
+        `SELECT id, username, password, pfp FROM users WHERE username='${username}' LIMIT 1`
     );
     if (!rows)
         return [];
@@ -25,9 +25,11 @@ async function addUser(name, pass) {
     var user = !rows ? undefined : rows[0];
     if (user)
         return false;
+
+    var pfp = `${Math.random() * 360},${Math.floor(Math.random() * 2) == 1 ? Math.random() * 23 : 100 - (Math.random() * 23)}`;
     
     var out = await execute(
-        `INSERT INTO users (username, password) VALUES ('${name}', '${pass}')`
+        `INSERT INTO users (username, password, pfp) VALUES ('${name}', '${pass}', '${pfp}')`
     )
     return out;
 }

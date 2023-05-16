@@ -25,7 +25,9 @@ $("#account").on("click", () => openMenu());
 $("#close").on("click", () => closeMenu());
 $("#signout").on("click", () => { location = "/signout" });
 
-// $(document).ready(() => {
-//     if ($("#account").hasClass("loggedin"))
-//         $("#menu").css("width", $("#menu").width());
-// })
+try {
+    console.log(pfp, typeof(pfp));
+    $("#pfp").css("filter", `invert(${pfp.split(",")[1]}%) hue-rotate(${pfp.split(",")[0]}deg)`);
+} catch (err) {
+    console.log(err);
+}

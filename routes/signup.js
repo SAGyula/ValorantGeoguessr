@@ -28,6 +28,8 @@ router.post('/', async function(req, res, next) {
         return;
     }
 
+    req.session.user = name;
+
     res.redirect('/')
 });
 
