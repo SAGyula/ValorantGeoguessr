@@ -25,6 +25,16 @@ body {
     box-shadow: 0 0 20px #000000ee;
 }
 
+#back {
+    position: absolute;
+    top: 39px;
+    left: 41px;
+    color: white;
+    font-weight: bolder;
+    font-size: x-large;
+    cursor: pointer;
+}
+
 #title {
     font-family: "valorant";
     text-align: center;
@@ -75,14 +85,12 @@ input:focus::placeholder {
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
     transition: background-color 5000s ease-in-out 0s;
-    color: white !important;
-    font-family: "Rubik" !important;
-    font-size: large !important;
-    text-shadow: 0 0 2px #ffffff;
 }
 
 #submit {
@@ -103,4 +111,15 @@ input:-webkit-autofill:active {
     transform: translateX(-50%);
     font-family: "Rubik";
     text-transform: uppercase;
+}
+
+p:not(:empty) {
+    color: white;
+    background-color: #ff000040;
+    border: 2px solid #ff000077;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin: 20px 100px;
+    font-family: "Rubik";
 }

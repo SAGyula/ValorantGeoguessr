@@ -15,11 +15,7 @@ router.post('/', async function(req, res, next) {
     var map = body.map;
     var difficulty = body.difficulty;
 
-    console.log(name, map, difficulty);
-
     var out = await db.getLeaderboard(name, map, difficulty);
-
-    console.log(out)
     
     res.send(out);
 });

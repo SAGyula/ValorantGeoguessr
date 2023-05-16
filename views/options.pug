@@ -4,9 +4,13 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", type="text/css", href="/stylesheets/options.css")
+        link(rel="shortcut icon" href="/images/favicon.png" type="image/x-icon")
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js") 
+        script(src="https://kit.fontawesome.com/daa386bf97.js") 
         title Options - ValorantGeoguessr
     body 
+        #back
+            i.fa-solid.fa-arrow-left-long
         h1 Options 
         form(action=`/game/${map}`, method="get") 
             #difficulty
@@ -24,3 +28,4 @@ html(lang="en")
             button#continue(type="submit", disabled) Continue
 
     script(src="/javascripts/options.js") 
+    script(src="/javascripts/back.js") 

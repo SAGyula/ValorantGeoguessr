@@ -17,6 +17,16 @@ body {
     box-shadow: 0 0 20px #000000ee;
 }
 
+#back {
+    position: absolute;
+    top: 39px;
+    left: 41px;
+    color: white;
+    font-weight: bolder;
+    font-size: x-large;
+    cursor: pointer;
+}
+
 h1 {
     font-family: "valorant";
     text-align: center;

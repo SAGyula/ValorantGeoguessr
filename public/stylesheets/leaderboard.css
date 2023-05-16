@@ -25,6 +25,16 @@ body {
     height: calc(100vh - 100px);
 }
 
+#back {
+    position: absolute;
+    top: 39px;
+    left: 41px;
+    color: white;
+    font-weight: bolder;
+    font-size: x-large;
+    cursor: pointer;
+}
+
 #title {
     font-family: "valorant";
     text-align: center;
@@ -38,12 +48,17 @@ body {
 #categories {
     flex-grow: 2;
     margin: 20px;
-    border: 1px solid #45454555;
+    border: 1px solid #4545452b;
     border-radius: 20px;
     width: 50vw;
-    padding: 5px 20px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-#categories > legend {
+
+#categories>legend {
     color: white;
     font-family: "Rubik";
     font-size: medium;
@@ -56,10 +71,92 @@ body {
     border-radius: 20px;
 }
 
+#selectors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    flex-grow: 2;
+}
+
+#selectors>* {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: "valorant";
+    font-size: larger;
+}
+
+#selectors input,
+#selectors select {
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+#selectors select {
+    width: 80%;
+    height: 20px;
+    background: #29292962;
+    border: 1px solid #ffffff60;
+    color: #ffffff;
+    font-family: "Rubik";
+}
+
+#selectors select option {
+    background-color: #292929;
+    color: #ffffff;
+    font-family: "Rubik";
+}
+
+#selectors input[type="checkbox"] {
+    appearance: none;
+    border: 2px solid #ffffff60;
+    border-radius: 4px;
+    width: 1.5em;
+    height: 1.5em;
+
+    display: grid;
+    place-content: center;
+}
+#selectors input[type="checkbox"]::before {
+    content: "";
+    width: 0.9em;
+    height: 0.9em;
+    border-radius: 2px;
+    transform: scale(0);
+    transition: 100ms transform ease-in-out;
+    box-shadow: inset 1em 1em #ff000099;
+}
+#selectors input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+#search {
+    width: 15%;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #770000;
+    border: none;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "Rubik";
+    text-transform: uppercase;
+    transition: all 0.2s;
+}
+#search:hover {
+    background-color: #aa0000;
+    transform: scale(1.1);
+}
+
+
 tbody {
     display: block;
     overflow-y: scroll;
-    height: 50vh;
+    height: 48vh;
 }
 
 thead,

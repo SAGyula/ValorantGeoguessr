@@ -61,8 +61,6 @@ async function getLeaderboard(name, map, difficulty) {
         `SELECT id, name, points, time, map, difficulty FROM leaderboard WHERE name LIKE '${name}' AND map LIKE '${map}' AND difficulty LIKE '${difficulty}' ORDER BY points DESC`
     );
 
-    console.log(rows);
-
     return rows;
 }
 

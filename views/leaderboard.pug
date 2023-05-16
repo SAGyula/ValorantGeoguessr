@@ -4,13 +4,15 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet" href="stylesheets/leaderboard.css")
-        link(rel="shortcut icon" href="/images/favicon.png" type="image/x-icon")
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js") 
         script(src="https://kit.fontawesome.com/daa386bf97.js") 
+        link(rel="shortcut icon" href="/images/favicon.png" type="image/x-icon")
         script. 
             var user = "#{user}";
         title Leaderboard - ValorantGeoguessr
     body 
+        #back
+            i.fa-solid.fa-arrow-left-long
         h1#title Leaderboard
         fieldset#categories
             legend Categories
@@ -35,9 +37,10 @@ html(lang="en")
                         option(value="easy") Easy
                         option(value="medium") Medium
                         option(value="hard") Hard
-                #user-only
-                    label(for="uo") User only?
-                    input#uo(type="checkbox" name="user-only")
+                if user
+                    #user-only
+                        label(for="uo") User only?
+                        input#uo(type="checkbox" name="user-only")
             button#search Search
         #leaderboard
             table
@@ -52,3 +55,4 @@ html(lang="en")
                 tbody#tbody 
                     
         script(src="/javascripts/leaderboard.js") 
+        script(src="/javascripts/back.js") 

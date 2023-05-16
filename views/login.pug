@@ -2,13 +2,20 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="viewport", content="width=device-width, initial-scale=0.5")
         link(rel="stylesheet", href="stylesheets/login.css")
+        link(rel="shortcut icon" href="/images/favicon.png" type="image/x-icon")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js") 
+        script(src="https://kit.fontawesome.com/daa386bf97.js") 
         title Login - ValorantGeoguessr
     body 
+        #back
+            i.fa-solid.fa-arrow-left-long
         h1#title Login
         form(action="/login", method="post") 
-            input#name(type="text", name="username", placeholder="Username")
-            input#password(type="password", name="password", placeholder="Password")
+            input#name(type="text", name="username", placeholder="Username", autocomplete="off")
+            input#password(type="password", name="password", placeholder="Password", autocomplete="off")
             button#submit(type="submit") Log in
         p #{message}
+
+    script(src="/javascripts/back.js") 

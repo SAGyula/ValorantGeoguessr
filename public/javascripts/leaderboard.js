@@ -1,13 +1,18 @@
 var records = {};
 
 $("#search").on("click", function () {
-    var name = $("#uo")[0].checked ? user : "%";
+    try {
+        var name = $("#uo")[0].checked ? user : "%";
+    } catch {
+        
+    }
+    
     var map = $("#map").val();
     var difficulty = $("#difficulty").val();
     map = map == "all" ? "%" : map;
     difficulty = difficulty == "all" ? "%" : difficulty;
 
-    $("#tbody").html("");
+    $("#tbody").html("<td>loading...</td>");
 
     $.post("/leaderboard", { name: name, map: map, difficulty: difficulty }, res => loadLeaderboard(res));
 });
@@ -15,6 +20,8 @@ $("#search").on("click", function () {
 function loadLeaderboard(res) {
     records = JSON.parse(JSON.stringify(res));
     records.sort(function(a, b) {b.points - a.points});
+
+    $("#tbody").html("");
 
     records.forEach(element => {
         $("#tbody").append(`<tr>
@@ -25,5 +32,13 @@ function loadLeaderboard(res) {
             <td>${element.map}</td>
             <td>${element.difficulty}</td>
         </tr>`)
-    })
+    });
+
+    if ($("tbody").is(":empty")) {
+        $("#tbody").html("<td>No matching data found</td>");
+    }
 }
+
+$(document).ready(() => {
+    $("#search").trigger("click");
+});

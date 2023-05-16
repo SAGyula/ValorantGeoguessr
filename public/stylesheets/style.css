@@ -223,6 +223,7 @@ body {
     transform: translateX(-50%);
     font-family: "Rubik";
     text-transform: uppercase;
+    transition: all 0.2s;
 }
 
 #select:disabled {
