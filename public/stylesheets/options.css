@@ -5,6 +5,7 @@ html {
     background: url("/images/background.png");
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 body {
@@ -15,6 +16,8 @@ body {
     border-radius: 40px;
     backdrop-filter: blur(24px);
     box-shadow: 0 0 20px #000000ee;
+    box-sizing: border-box;
+    height: calc(100vh - 100px);
 }
 
 #back {
