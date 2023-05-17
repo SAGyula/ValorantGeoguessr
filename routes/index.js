@@ -5,8 +5,8 @@ var db = require("../services/db");
 /* GET home page. */
 router.get('/', async function (req, res, next) {
     var user = req.session.user;
-    var userObj = (await db.checkUser(user))[0];
-    if (userObj) {
+    if (user) {
+        var userObj = (await db.checkUser(user))[0];
         var pfp = userObj.pfp;
     } else {
         var pfp = "";
