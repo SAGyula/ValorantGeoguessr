@@ -225,6 +225,7 @@ body {
     font-family: "Rubik";
     text-transform: uppercase;
     transition: all 0.2s;
+    z-index: 100;
 }
 
 #select:disabled {

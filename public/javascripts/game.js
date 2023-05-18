@@ -89,8 +89,8 @@ function mapChange() {
 
         if (cx != 2000 || cy != 2000) {
 
-            markers += `<div class="solution" style="top: ${offset + loc.y - 10}; left: ${loc.x - 10}"><i class="fa-solid fa-font-awesome"></i></div>`;
-            markers += `<div class="answer" style="top: ${offset + cy - 10}; left: ${cx - 10}">${e + 1}</div>`;
+            markers += `<div class="solution" style="top: ${offset + loc.y - 10}px; left: ${loc.x - 10}px"><i class="fa-solid fa-font-awesome"></i></div>`;
+            markers += `<div class="answer" style="top: ${offset + cy - 10}px; left: ${cx - 10}px">${e + 1}</div>`;
 
             svg += `<path stroke-dasharray="4, 4" d="M${cx} ${cy} l${loc.x - cx} ${loc.y - cy}"/>`;
         }
@@ -123,8 +123,8 @@ function showResult() {
             if (cx == 2000 || cy == 2000)
                 continue;
 
-            markers += `<div class="solution" style="top: ${offset + loc.y - 10}; left: ${loc.x - 10}"><i class="fa-solid fa-font-awesome"></i></div>`;
-            markers += `<div class="answer" style="top: ${offset + cy - 10}; left: ${cx - 10}">${i + 1}</div>`;
+            markers += `<div class="solution" style="top: ${offset + loc.y - 10}px; left: ${loc.x - 10}px"><i class="fa-solid fa-font-awesome"></i></div>`;
+            markers += `<div class="answer" style="top: ${offset + cy - 10}px; left: ${cx - 10}px">${i + 1}</div>`;
 
             svg += ` <path stroke-dasharray="4, 4" d="M${cx} ${cy} l${loc.x - cx} ${loc.y - cy}"/>`;
 
