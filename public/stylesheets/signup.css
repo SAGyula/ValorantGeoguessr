@@ -11,6 +11,10 @@ html {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    overflow: hidden;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 body {
     display: inline-block;
@@ -52,6 +56,36 @@ form {
     justify-content: flex-start;
     flex-direction: column;
 }
+
+.passcont, .repasscont {
+    width: calc(80% + 40px);
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.passcont {
+    margin-bottom: 30px;
+}
+
+.passcont > input, .repasscont > input {
+    width: 100%;
+    margin: 0;
+}
+.passcont > i, .repasscont > i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    font-size: x-large;
+    color: white;
+    cursor: pointer;
+}
+
+.fa-eye-slash {
+    right: 19px !important;
+}
+
 
 input {
     width: 80%;

@@ -4,6 +4,10 @@
 
 * {
     overflow: hidden;
+    overflow: hidden;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 body {
@@ -16,8 +20,6 @@ body {
     background-size: cover;
     backdrop-filter: blur(8px) brightness(0.8);
     background-repeat: no-repeat;
-
-    overflow: hidden;
 }
 
 #image {

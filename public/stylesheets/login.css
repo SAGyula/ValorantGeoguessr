@@ -11,6 +11,10 @@ html {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    overflow: hidden;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 body {
@@ -55,6 +59,30 @@ form {
     overflow: visible;
 }
 
+.passcont {
+    width: calc(80% + 40px);
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.passcont > input {
+    width: 100%;
+    margin: 0;
+}
+.passcont > i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    font-size: x-large;
+    color: white;
+    cursor: pointer;
+}
+.fa-eye-slash {
+    right: 19px !important;
+}
+
 input {
     width: 80%;
     height: 35px;
@@ -90,7 +118,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus
 input:-webkit-autofill {
     -webkit-text-fill-color: #ffffff;
-    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    -webkit-box-shadow: 0 0 0px 1000px #222 inset;
     transition: background-color 5000s ease-in-out 0s;
 }
 

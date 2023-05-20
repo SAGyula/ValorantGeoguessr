@@ -68,6 +68,7 @@ class Carousel {
             item.setAttribute("src", data.src);
             item.className = `carousel-item carousel-item-${i}`;
             item.setAttribute("id", i+1);
+            item.setAttribute("draggable", "false");
 
             this.container.append(item)
             this.items.push(item);

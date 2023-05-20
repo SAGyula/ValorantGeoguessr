@@ -15,8 +15,12 @@ html(lang="en")
         h1#title Signup
         form(action="/signup", method="post") 
             input(type="text", name="username", placeholder="Username", autocomplete="off")
-            input(type="password", name="password", placeholder="Password", autocomplete="off")
-            input(type="password", name="repassword", placeholder="Repeate password", autocomplete="off")
+            .passcont
+                input(type="password", name="password", placeholder="Password", autocomplete="off")
+                i.fa-solid.fa-eye
+            .repasscont
+                input(type="password", name="repassword", placeholder="Repeate password", autocomplete="off")
+                i.fa-solid.fa-eye
             button#submit(type="submit") Sign up
         p #{message}
 

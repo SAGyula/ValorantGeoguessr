@@ -8,8 +8,27 @@ var svg = `
 </circle>
 </svg>`
 
-$("#submit").on("click", function() {
+$("#submit").on("click", function () {
     $("#submit").html(svg);
 });
+
+$(".passcont > i").on("click", function () {
+    var input = $(".passcont > input");
+    var type = $(".passcont > input").attr("type") == 'password' ? "text" : "password";
+    input.attr('type', type)
+
+    console.log(input, type, input.attr("type"));
+
+    $(this).toggleClass("fa-eye-slash");
+    $(this).toggleClass("fa-eye");
+})
+$(".repasscont > i").on("click", function () {
+    var input = $(".repasscont > input");
+    var type = $(".repasscont > input").attr("type") == 'password' ? "text" : "password";
+    input.attr('type', type)
+
+    $(this).toggleClass("fa-eye-slash");
+    $(this).toggleClass("fa-eye");
+})
 
 console.log("works")
