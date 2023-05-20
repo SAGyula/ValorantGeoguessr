@@ -1,5 +1,6 @@
 const mysql = require('mysql2/promise');
 const config = require('../config');
+const encrypt = require("./encrypt");
 
 async function execute(sql, params) {
     const connection = await mysql.createConnection(config.db);
@@ -10,7 +11,7 @@ async function execute(sql, params) {
 
 async function checkUser(username) {
     const rows = await execute(
-        `SELECT id, username, password, pfp FROM users WHERE username='${username}' LIMIT 1`
+        `SELECT id, username, salt, password, pfp FROM users WHERE username='${username}' LIMIT 1`
     );
     if (!rows)
         return [];
@@ -20,16 +21,18 @@ async function checkUser(username) {
 
 async function addUser(name, pass) {
     const rows = await execute(
-        `SELECT id, username, password FROM users WHERE username='${name}' LIMIT 1`
+        `SELECT id, username, salt, password FROM users WHERE username='${name}' LIMIT 1`
     );
     var user = !rows ? undefined : rows[0];
     if (user)
         return false;
 
     var pfp = `${Math.random() * 360},${Math.floor(Math.random() * 2) == 1 ? Math.random() * 23 : 100 - (Math.random() * 23)}`;
+
+    var { salt, hash } = encrypt.generatePassword(pass);
     
     var out = await execute(
-        `INSERT INTO users (username, password, pfp) VALUES ('${name}', '${pass}', '${pfp}')`
+        `INSERT INTO users (username, salt, password, pfp) VALUES ('${name}', '${salt}', '${hash}', '${pfp}')`
     )
     return out;
 }

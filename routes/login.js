@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require("../services/db")
+var encrypt = require("../services/encrypt")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,7 +18,7 @@ router.post('/', async function(req, res, next) {
 
     var user = (await db.checkUser(name))[0];
     
-    if (user && user.password == pass) {
+    if (user && user.salt && encrypt.validatePassword(pass, user.salt, user.password)) {
         req.session.user = user.username;
         res.redirect("/");
     } else {
